@@ -26,7 +26,7 @@ def make_response(message):
     except Exception:
         new_image_url = (r.json())["output_url"]
         # Save locally
-        r2 = requests.get(url)
+        r2 = requests.get(new_image_url)
         filename = str(uuid.uuid4()) + ".jpg"
         with open(SAVE_LOCATION + filename, 'wb') as f:
             f.write(r2.content)
