@@ -34,7 +34,7 @@ def make_response(message):
         final_image_url = f"https://lukew3.com/recolorbot/photos/{filename}"
         return f"[Colorized image]({final_image_url})"
 
-footer = "\n\n ^( [source](https://github.com/lukew3/recolorbot) )" 
+footer = "\n\n ^( [source code](https://github.com/lukew3/recolorbot) )" 
 #footer = "\n\n ^( [dev](https://github.com/lukew3/)|[source](https://github.com/lukew3/recolorbot) )" 
 #footer = "\n\n ^( developed by [lukew3](https://github.com/lukew3/) )" 
 messages = r.inbox.stream()

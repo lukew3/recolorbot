@@ -7,6 +7,3 @@ A Reddit bot that colorizes a black and white image post on reddit. When the bot
 2. Create the file `api-key.txt` and paste your deepai key inside of the file
 3. Install praw with `pip install praw`
 4. Run with `python main.py`
-
-## Notice
-The bot is currently not working. The bot can post comments, but they aren't visible to other users. If you know why this is occurring, please email me at lukew25073@gmail.com
