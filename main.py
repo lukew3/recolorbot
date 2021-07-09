@@ -19,11 +19,10 @@ def make_response(message):
         data={'image': submission.url},
         headers={'api-key': API_KEY}
     )
-    try:
-        if (r.json())["err"]:
-            # Error during colorization
-            return "An error occurred during colorization. Original post must be an image or a direct link to an image. You can still generate a colorized image by downloading and uploading manually to [DeepAI Image Colorizer](https://deepai.org/machine-learning-model/colorizer)"
-    except Exception:
+    if "err" in r.json():
+        # Error during colorization
+        return "An error occurred during colorization. Original post must be an image or a direct link to an image. You can still generate a colorized image by downloading and uploading manually to [DeepAI Image Colorizer](https://deepai.org/machine-learning-model/colorizer)"
+    else:
         new_image_url = (r.json())["output_url"]
         # Save locally
         r2 = requests.get(new_image_url)
@@ -35,8 +34,6 @@ def make_response(message):
         return f"[Colorized image]({final_image_url})"
 
 footer = "\n\n ^( [source code](https://github.com/lukew3/recolorbot) )" 
-#footer = "\n\n ^( [dev](https://github.com/lukew3/)|[source](https://github.com/lukew3/recolorbot) )" 
-#footer = "\n\n ^( developed by [lukew3](https://github.com/lukew3/) )" 
 messages = r.inbox.stream()
 print("Awaiting requests")
 for message in messages:
